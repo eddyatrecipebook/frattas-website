@@ -127,7 +127,7 @@ a:hover { color: var(--gold); }
 .services__background {
   position: absolute; inset: 0;
   background: url("../images/venue.jpg") center / cover no-repeat;
-  opacity: 0.12;
+  opacity: 0.5;   /* how much of the venue photo shows through the grey */
 }
 .services__inner {
   position: relative;
@@ -201,7 +201,6 @@ a:hover { color: var(--gold); }
     padding-bottom: calc(var(--pad-s) + var(--block));
   }
   .hero__title { width: 100%; }
-  .services__background { opacity: 0.55; }
   .services__inner { padding-top: calc(var(--pad-m) + var(--block)); }
   .services__columns { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .services__column + .services__column { padding-top: 42px; }
