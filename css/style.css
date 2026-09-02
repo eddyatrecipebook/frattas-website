@@ -1,0 +1,186 @@
+/* Frattas Event Planning + Design
+   Colours and type taken from the original Squarespace theme. */
+
+:root {
+  --charcoal: #373d42;   /* dark sections */
+  --grey: #cbd0d2;       /* light sections, footer */
+  --pink: #eac7c1;       /* client logos section */
+  --gold: #cc9933;       /* buttons */
+  --white: #ffffff;
+  --font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --gutter: 3vw;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--grey);
+  color: var(--charcoal);
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open { overflow: hidden; }
+
+h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.4; }
+p { margin: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+a:hover { color: var(--gold); }
+
+.container { padding-left: var(--gutter); padding-right: var(--gutter); }
+
+.skip-link {
+  position: absolute; left: -999px; top: 8px;
+  background: var(--white); color: var(--charcoal); padding: 8px 16px; z-index: 100;
+}
+.skip-link:focus { left: 8px; }
+
+/* Buttons */
+.button {
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: 300px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+.button:hover { opacity: 0.85; }
+.button--header { background: var(--gold); color: var(--white); font-size: 12.8px; padding: 18px 30px; }
+.button--header:hover { color: var(--white); }
+.button--white { background: var(--white); color: var(--charcoal); font-size: 17.6px; padding: 20.8px 34.7px; }
+.button--white:hover { color: var(--charcoal); }
+.button--gold { background: var(--gold); color: var(--white); font-size: 17.6px; padding: 20.8px 34.7px; }
+.button--gold:hover { color: var(--white); }
+
+/* Header */
+.site-header { background: var(--charcoal); }
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 31px var(--gutter);
+}
+.site-header__logo img { height: 85px; width: auto; }
+
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 44px; height: 44px;
+  padding: 0; border: 0; background: none; cursor: pointer;
+}
+.menu-toggle__bar {
+  position: absolute; left: 8px; width: 28px; height: 1.5px;
+  background: var(--white);
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+.menu-toggle__bar:first-child { top: 16px; }
+.menu-toggle__bar:last-child { top: 26.5px; }
+.menu-toggle.is-open .menu-toggle__bar { top: 21px; }
+.menu-toggle.is-open .menu-toggle__bar:first-child { transform: rotate(45deg); }
+.menu-toggle.is-open .menu-toggle__bar:last-child { transform: rotate(-45deg); }
+
+.menu {
+  position: fixed; inset: 0; top: 76px; z-index: 50;
+  background: var(--charcoal);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 48px 6vw;
+}
+.menu[hidden] { display: none; }
+
+/* Hero */
+.hero { background: var(--charcoal); color: var(--white); min-height: 560px; }
+.hero__title { font-size: 60px; max-width: 66%; padding: 36px 0 70px; text-wrap: pretty; }
+
+/* Services */
+.services { position: relative; background: var(--grey); overflow: hidden; }
+.services__background {
+  position: absolute; inset: 0;
+  background: url("../images/venue.jpg") center / cover no-repeat;
+  opacity: 0.12;
+}
+.services__inner { position: relative; padding-top: 120px; padding-bottom: 130px; text-align: center; }
+.services__title { font-size: 40px; }
+.services__columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 60px;
+  margin-top: 40px;
+}
+.services__column h3 { font-size: 30px; }
+.services__column ul { text-align: left; margin-top: 30px; font-size: 14.4px; }
+.services__column li { position: relative; padding-left: 16px; }
+.services__column li::before { content: "•"; position: absolute; left: 0; }
+.services__action { margin-top: 34px; }
+
+/* Clients */
+.clients { background: var(--pink); padding: 110px 0 80px; text-align: center; }
+.clients__title { font-size: 40px; }
+.clients__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px 60px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+.clients__grid li { display: flex; align-items: center; justify-content: center; height: 220px; }
+.clients__grid img { max-height: 100%; width: auto; object-fit: contain; }
+
+/* Call to action */
+.cta { background: var(--charcoal); color: var(--white); text-align: center; padding: 230px 0 235px; }
+.cta__title { font-size: 40px; }
+.cta .button { margin-top: 36px; }
+
+/* Footer */
+.site-footer { background: var(--grey); font-size: 13px; }
+.site-footer__inner {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 55px; padding-bottom: 55px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero__title { font-size: 48px; max-width: 80%; }
+  .services__columns { gap: 32px; }
+  .clients__grid { gap: 24px 32px; }
+  .clients__grid li { height: 170px; }
+}
+
+/* Phone */
+@media (max-width: 767px) {
+  :root { --gutter: 6vw; }
+  .site-header__inner { padding: 22px var(--gutter); }
+  .site-header__logo img { height: 32px; }
+  .site-header .button--header { display: none; }
+  .menu-toggle { display: block; }
+  .hero { min-height: 0; }
+  .hero__title { font-size: 40px; max-width: 100%; padding: 8px 0 44px; }
+  .services__background { opacity: 0.55; }
+  .services__inner { padding-top: 60px; padding-bottom: 60px; }
+  .services__title { font-size: 30px; }
+  .services__columns { grid-template-columns: minmax(0, 1fr); gap: 44px; margin-top: 34px; }
+  .services__column h3 { font-size: 24px; }
+  .services__column ul { margin-top: 18px; font-size: 15px; }
+  .services__action { margin-top: 50px; }
+  .button--white { display: block; font-size: 15px; padding: 18px 20px; text-align: center; }
+  .clients { padding: 60px 0 60px; }
+  .clients__title { font-size: 30px; }
+  .clients__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 24px; margin-top: 40px; }
+  .clients__grid li { height: 150px; }
+  .cta { padding: 110px 0 120px; }
+  .cta__title { font-size: 30px; }
+  .button--gold { font-size: 15px; padding: 18px 40px; }
+  .site-footer__inner { flex-direction: column; align-items: flex-start; gap: 36px; padding-top: 40px; padding-bottom: 60px; }
+  .site-footer__email { align-self: flex-end; }
+}
